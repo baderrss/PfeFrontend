@@ -1,7 +1,7 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL; // ex: http://localhost:3000/api
+const API_URL = "http://localhost:3000/api"; // ex: http://localhost:3000/api
 
 export async function login(email: string, password: string) {
-  const res = await fetch(`${API_URL}/auth/login`, {
+  const res = await fetch(`${API_URL}/users/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include", // pour cookies si backend les utilise
@@ -22,7 +22,7 @@ export async function signup(data: {
   email: string;
   password: string;
 }) {
-  const res = await fetch(`${API_URL}/auth/register`, {
+  const res = await fetch(`${API_URL}/users/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
